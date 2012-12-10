@@ -320,13 +320,14 @@ nss_base_passwd         <%= ldap_base_users %>
 nss_base_shadow         <%= ldap_base_users %>
 nss_base_group          <%= ldap_base_groups %>
 
-nss_map_objectclass posixAccount user
-nss_map_objectclass shadowAccount user		
-nss_map_attribute uid sAMAccountName
-nss_map_attribute homeDirectory unixHomeDirectory
-nss_map_attribute shadowLastChange pwdLastSet
-nss_map_objectclass posixGroup group
-nss_map_attribute uniqueMember member
+# AD stuff
+#nss_map_objectclass posixAccount user
+#nss_map_objectclass shadowAccount user		
+#nss_map_attribute uid sAMAccountName
+#nss_map_attribute homeDirectory unixHomeDirectory
+#nss_map_attribute shadowLastChange pwdLastSet
+#nss_map_objectclass posixGroup group
+#nss_map_attribute uniqueMember member
 # XXX: This is counter intuitive below causes a lookup on every DN the user
 # has in memberOf. By using the filter in the nss_base_group line disabling
 # his actually becomes faster.
