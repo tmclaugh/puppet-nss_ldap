@@ -15,7 +15,7 @@ class nss_ldap ($ldap_nss_uri,
 		group => "root",
 		mode => '0644',
 		content => template("nss_ldap/ldap.conf.erb"),
-		require => [Class["ldap"], Package["nss_ldap"]],
+		require => Package["nss_ldap"],
 	}
 
 	# XXX: We should probably go back to running sed on
