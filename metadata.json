@@ -1,0 +1,16 @@
+{
+  "name": "tom-tmclaugh-puppet-nss_ldap",
+  "author": "",
+  "description": "",
+  "license": "",
+  "project_page": "",
+  "source": "",
+  "summary": "",
+  "version": "",
+  "checksums": {
+    "Modulefile": "bac66133cc5029edcbfdd417f28365ff",
+    "manifests\\init.pp": "33722a8aa0ecf46182a78a1326f83c5d",
+    "templates\\ldap.conf.erb": "3dcee2e67877f94f938d4712fb56fcbf"
+  },
+  "dependencies": []
+}
