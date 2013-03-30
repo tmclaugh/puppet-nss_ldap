@@ -17,13 +17,4 @@ class nss_ldap ($ldap_nss_uri,
 		content => template("nss_ldap/ldap.conf.erb"),
 		require => Package["nss_ldap"],
 	}
-
-	# XXX: We should probably go back to running sed on
-	# nsswitch.conf since it's more portable than below.
-	exec {"authconfig_enableldap" :
-		# XXX: restart nscd on our own.
-		command => "authconfig --nostart --enableldap --update",
-		unless => "perl -ne 'BEGIN { @p = (qr/^passwd:.*ldap/, qr/^shadow:.*ldap/, qr/^group:.*ldap/); } for \$p (@p) { \$p{\$p}++ if /\$p/ }; END { exit (@p != keys %p) }' /etc/nsswitch.conf",
-		require => File["/etc/ldap.conf"]
-	}
 }
